@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admision CLub CODEWARS</title>
+</head>
+
+
+<body>
+
+<header>
+<h1>FORMULARIO DE ADMISION CLUB CODEWARS</h1>
+
+</header>
+
+<section>
+
+    <form id="miformulario">
+
+        <DIV>
+        <h2>DATOS PERSONALES</h2>
+        </DIV>
+
+    
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required minlength="20" />
+  
+
+        <label for="apellidos">Apellidos</label>
+        <input type="text" id="apellidos" apellidos="apellidos" minlength="60" />
+  
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" required min="18" max="120" />
+  
+        <label for="genero">Género:</label>
+            <input type="radio" id="hombre" name="genero" value="hombre">
+            <label for="hombre">Hombre</label>
+            <input type="radio" id="mujer" name="genero" value="mujer">
+            <label for="mujer">Mujer</label>
+  
+        <label for="deseopertenecer">Deseo pertenecer:</label>
+        <input type="checkbox" id="deseopertenecer" name="nombre" value="sí">
+
+        <label for="habladeti">Háblanos de ti:</label>
+        <textarea id="habladeti" name="habladeti" rows="4" cols="60">
+        Texto por defecto opcional aquí...
+        </textarea>
+
+
+    <DIV>
+    <H2>DATOS DE CONTACTO</H2>
+    </DIV>
+
+
+     <label for="email">Correo Electrónico:</label>
+     <input type="email" id="email" name="email" placeholder="clubcodewars@dominio.com">
+
+     <label for="telefono">Teléfono:</label>
+     <input type="tel" id="telefono" name="telefono" placeholder="944-888-999">
+
+
+
+
+
+
+  <button type="submit">Enviar</button>
+
+
+
+   </form>
+
+
+</section>
+
+   <script src="js/main.js">
+    
+   </script>
+
+
+</body>
+
+
+
+</html>
