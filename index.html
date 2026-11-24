@@ -1,86 +1,199 @@
 <!DOCTYPE html>
+<!--
+  Práctica 1.1.10: formularios en HTML.
+  Enunciado: 01-modulo1-html-css-js/1.1-HTML/1.1.10-practica-formulario.md
+  Dos formularios:
+   1. Registrarse en el club (datos personales y de contacto).
+   2. Registrar el robo de la bicicleta.
+  Requisitos del enunciado en los dos: autofocus, tabindex, reset, submit,
+  fieldset, legend, placeholders, y cada campo con su label enlazado.
+-->
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
     <title>Admision CLub CODEWARS</title>
 </head>
 
 
 <body>
 
-<header>
-<h1>FORMULARIO DE ADMISION CLUB CODEWARS</h1>
+    <header>
+        <h1>FORMULARIO DE ADMISION CLUB CODEWARS</h1>
+    </header>
 
-</header>
+    <main>
 
-<section>
+        <!-- ============ FORMULARIO 1: registrarse en el club ============ -->
+        <section>
 
-    <form id="miformulario">
+            <h2>REGISTRARSE EN EL CLUB</h2>
 
-        <DIV>
-        <h2>DATOS PERSONALES</h2>
-        </DIV>
+            <form id="miformulario">
+
+                <!-- fieldset agrupa los campos; legend es el título del grupo -->
+                <fieldset>
+                    <legend>DATOS PERSONALES</legend>
+
+                    <!-- autofocus: al abrir la página el cursor cae en este campo.
+                         tabindex: orden en que se pasa de campo con la tecla Tab. -->
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre"
+                        required maxlength="20" autofocus tabindex="1" />
+
+                    <label for="apellidos">Apellidos:</label>
+                    <input type="text" id="apellidos" name="apellidos" placeholder="Tus apellidos"
+                        maxlength="60" tabindex="2" />
+
+                    <label for="edad">Edad:</label>
+                    <input type="number" id="edad" name="edad" placeholder="Mayor de 18"
+                        required min="18" max="120" tabindex="3" />
+
+                    <!-- Radio: los dos comparten name="genero" para que solo se pueda marcar uno.
+                         Cada radio lleva su propio label enlazado por for/id. -->
+                    <p>Sexo:</p>
+                    <input type="radio" id="hombre" name="genero" value="hombre" tabindex="4">
+                    <label for="hombre">Hombre</label>
+                    <input type="radio" id="mujer" name="genero" value="mujer" tabindex="5">
+                    <label for="mujer">Mujer</label>
+
+                    <!-- Casilla: "Me siento del club" -->
+                    <input type="checkbox" id="deseopertenecer" name="deseopertenecer" value="si" tabindex="6">
+                    <label for="deseopertenecer">Me siento del club</label>
+
+                    <label for="habladeti">Escribe algo sobre ti:</label>
+                    <textarea id="habladeti" name="habladeti" rows="4" cols="60"
+                        placeholder="Cuéntanos algo sobre ti..." tabindex="7"></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <legend>DATOS DE CONTACTO</legend>
+
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" placeholder="clubcodewars@dominio.com"
+                        tabindex="8">
+
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="944-888-999"
+                        tabindex="9">
+                </fieldset>
+
+                <!-- reset: vacía el formulario. submit: lo envía (main.js lo intercepta) -->
+                <button type="reset" tabindex="10">Borrar</button>
+                <button type="submit" tabindex="11">Enviar</button>
+
+            </form>
+
+        </section>
 
 
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required minlength="20" />
-  
+        <!-- ============ FORMULARIO 2: registrar el robo de la bicicleta ============ -->
+        <section>
 
-        <label for="apellidos">Apellidos</label>
-        <input type="text" id="apellidos" apellidos="apellidos" minlength="60" />
-  
-        <label for="edad">Edad:</label>
-        <input type="number" id="edad" name="edad" required min="18" max="120" />
-  
-        <label for="genero">Género:</label>
-            <input type="radio" id="hombre" name="genero" value="hombre">
-            <label for="hombre">Hombre</label>
-            <input type="radio" id="mujer" name="genero" value="mujer">
-            <label for="mujer">Mujer</label>
-  
-        <label for="deseopertenecer">Deseo pertenecer:</label>
-        <input type="checkbox" id="deseopertenecer" name="nombre" value="sí">
+            <h2>REGISTRAR EL ROBO DE LA BICICLETA</h2>
 
-        <label for="habladeti">Háblanos de ti:</label>
-        <textarea id="habladeti" name="habladeti" rows="4" cols="60">
-        Texto por defecto opcional aquí...
-        </textarea>
+            <form id="formularioRobo">
 
+                <fieldset>
+                    <legend>DATOS DEL ROBO</legend>
 
-    <DIV>
-    <H2>DATOS DE CONTACTO</H2>
-    </DIV>
+                    <!-- autofocus también aquí por pedirlo el enunciado en los dos formularios;
+                         el navegador solo hace caso al primero de la página. -->
+                    <label for="dia">Día:</label>
+                    <input type="date" id="dia" name="dia" required autofocus tabindex="12">
 
+                    <label for="hora">Hora:</label>
+                    <input type="time" id="hora" name="hora" tabindex="13">
+                </fieldset>
 
-     <label for="email">Correo Electrónico:</label>
-     <input type="email" id="email" name="email" placeholder="clubcodewars@dominio.com">
+                <fieldset>
+                    <legend>DATOS DE LA BICICLETA</legend>
 
-     <label for="telefono">Teléfono:</label>
-     <input type="tel" id="telefono" name="telefono" placeholder="944-888-999">
+                    <label for="color">Color de la bicicleta:</label>
+                    <input type="color" id="color" name="color" value="#ff0000" tabindex="14">
 
+                    <!-- range: deslizante entre 0 y 5000 euros, de 50 en 50 -->
+                    <label for="precio">Rango de precio (euros):</label>
+                    <input type="range" id="precio" name="precio" min="0" max="5000" step="50"
+                        value="500" tabindex="15">
 
+                    <!-- select simple con grupos: optgroup agrupa las opciones por tipo -->
+                    <label for="tipo">Tipo de bicicleta:</label>
+                    <select id="tipo" name="tipo" tabindex="16">
+                        <option value="">-- Elige un tipo --</option>
+                        <optgroup label="Urbana">
+                            <option value="clasica">Bicicleta Clásica</option>
+                            <option value="plegable">Bicicleta Plegable</option>
+                            <option value="electrica">Bicicleta Eléctrica</option>
+                            <option value="commuter">Bicicleta Commuter</option>
+                        </optgroup>
+                        <optgroup label="Montaña">
+                            <option value="sport">Bicicletas de tipo Sport</option>
+                            <option value="trail">Bicicletas de tipo Trail o Hard Tail</option>
+                            <option value="xc">Bicicletas para XC o Cross Country</option>
+                        </optgroup>
+                        <optgroup label="Carreras">
+                            <option value="granfondo">Bicicletas Gran Fondo</option>
+                            <option value="racing">Bicicletas Racing</option>
+                            <option value="aero">Bicicletas Aero</option>
+                        </optgroup>
+                    </select>
 
+                    <!-- select multiple: se eligen varios con Ctrl (o Cmd) + clic -->
+                    <label for="accesorios">Accesorios (Ctrl + clic para varios):</label>
+                    <select id="accesorios" name="accesorios" multiple size="6" tabindex="17">
+                        <option value="ruedines">Ruedines</option>
+                        <option value="hinchadores">Hinchadores</option>
+                        <option value="rodillos">Rodillos</option>
+                        <option value="bomba">Bomba de aire</option>
+                        <option value="alforja">Alforja</option>
+                        <option value="silla">Silla portabebés</option>
+                    </select>
 
+                    <!-- Lista de datos: el input escribe libremente pero sugiere las marcas del datalist
+                         (se enlazan por list="marcas" y id="marcas") -->
+                    <label for="marca">¿Qué marca era?</label>
+                    <input type="text" id="marca" name="marca" list="marcas"
+                        placeholder="Escribe o elige una marca" tabindex="18">
+                    <datalist id="marcas">
+                        <option value="specialized">
+                        <option value="trek">
+                        <option value="merida">
+                        <option value="scott">
+                        <option value="giant">
+                        <option value="cube">
+                        <option value="lapierre">
+                        <option value="orbea">
+                        <option value="cannondale">
+                        <option value="bmc">
+                        <option value="canyon">
+                        <option value="look">
+                        <option value="protek">
+                        <option value="megamo">
+                        <option value="pinarello">
+                        <option value="bianchi">
+                        <option value="bh">
+                        <option value="factor">
+                        <option value="ghost">
+                        <option value="cervélo">
+                        <option value="argon">
+                    </datalist>
+                </fieldset>
 
+                <button type="reset" tabindex="19">Borrar</button>
+                <button type="submit" tabindex="20">Enviar</button>
 
-  <button type="submit">Enviar</button>
+            </form>
 
+        </section>
 
+    </main>
 
-   </form>
-
-
-</section>
-
-   <script src="js/main.js">
-    
-   </script>
-
+    <!-- Script al final del body: los formularios ya existen cuando main.js los busca -->
+    <script src="js/main.js"></script>
 
 </body>
-
-
 
 </html>

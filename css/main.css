@@ -1,0 +1,93 @@
+/* ==========================================================
+   Práctica 1.1.10 · Formularios
+   El enunciado no pide estilos; solo lo justo para que los
+   formularios se lean bien. Mobile First: una columna y
+   un ancho máximo cuando la pantalla es grande.
+   ========================================================== */
+
+/* Base: fuente y sin márgenes por defecto en el body */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Cabecera con el título */
+header {
+  background-color: #2f0202;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+/* Contenido con aire a los lados */
+main {
+  padding: 1rem;
+}
+
+/* Cada grupo del formulario con su marco */
+fieldset {
+  margin-bottom: 1rem;
+  border: 1px solid grey;
+  border-radius: 8px;
+}
+
+legend {
+  font-weight: bold;
+}
+
+/* Etiquetas y campos de texto, uno debajo de otro y a todo el ancho.
+   Los radios y las casillas quedan fuera para que su label siga a su lado. */
+label {
+  display: block;
+  margin-top: 0.75rem;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="time"],
+textarea,
+select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.4rem;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+/* Radios y casilla con su label en la misma línea */
+input[type="radio"] + label,
+input[type="checkbox"] + label {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+/* Botones */
+button {
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+
+/* =============== Formato 768 · Tablet =============== */
+
+@media (min-width: 768px) {
+
+  /* El contenido no se estira: queda centrado con un ancho cómodo */
+  main {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
